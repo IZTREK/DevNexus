@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevNexus | Portal de Tecnologías Computacionales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">DevNexus</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#temas">Temarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="py-5 text-center bg-dark">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold">Dominando el <span class="text-info">Backend</span></h1>
+            <p class="lead">Enciclopedia técnica sobre Web APIs, Microservicios y Contenedores.</p>
+        </div>
+    </header>
+
+    <main id="temas" class="container my-5">
+        <h2 class="text-center mb-5">Unidades de Aprendizaje</h2>
+        
+        <!-- ========== UNIDAD 1: WEB APIs ========== -->
+        <section class="tema-section mb-5">
+            <div class="tema-header text-center mb-4">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1200&q=80" class="tema-banner mb-3" alt="Web APIs">
+                <h3 class="display-6">1. Tecnologías de Web APIs</h3>
+                <p class="lead px-4">
+                    Las <strong>Web APIs</strong> (Application Programming Interfaces) son la columna vertebral de la comunicación moderna entre sistemas distribuidos. 
+                    Permiten que aplicaciones, servicios y plataformas intercambien datos y funcionalidades de manera estructurada y segura a través de Internet. 
+                    En el mundo actual del desarrollo web, dominar las APIs es esencial para construir aplicaciones escalables, modulares y eficientes.
+                </p>
+                <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#infoModal" 
+                    onclick="updateModal('Introducción a Web APIs', 'Conceptos fundamentales de comunicación entre sistemas.', 'https://www.youtube.com/embed/u2Ms34GE14U')">
+                    🎥 Ver Video Introductorio
+                </button>
+            </div>
+
+            <div class="accordion" id="accordionWebAPI">
+                <!-- HTTP -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTTP">
+                            <strong>📡 Protocolo HTTP - Fundamento de la Web</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseHTTP" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPI">
+                        <div class="accordion-body">
+                            <h5>¿Qué es HTTP?</h5>
+                            <p>
+                                <strong>HTTP (HyperText Transfer Protocol)</strong> es el protocolo de comunicación que hace posible la transferencia de información en la World Wide Web. 
+                                Funciona bajo un modelo <strong>cliente-servidor</strong> donde el cliente (navegador o aplicación) solicita recursos y el servidor responde con los datos solicitados.
+                            </p>
+                            
+                            <h5 class="mt-4">Métodos HTTP Principales:</h5>
+                            <ul>
+                                <li><code>GET</code>: Solicita datos de un recurso específico. Es idempotente (no modifica datos).</li>
+                                <li><code>POST</code>: Envía datos para crear un nuevo recurso. Ejemplo: registro de usuarios.</li>
+                                <li><code>PUT</code>: Actualiza un recurso existente completamente.</li>
+                                <li><code>PATCH</code>: Actualiza parcialmente un recurso.</li>
+                                <li><code>DELETE</code>: Elimina un recurso específico.</li>
+                            </ul>
+
+                            <h5 class="mt-4">Códigos de Estado HTTP:</h5>
+                            <ul>
+                                <li><strong>2xx (Éxito):</strong> 200 OK, 201 Created, 204 No Content</li>
+                                <li><strong>3xx (Redirección):</strong> 301 Moved Permanently, 304 Not Modified</li>
+                                <li><strong>4xx (Error del cliente):</strong> 400 Bad Request, 401 Unauthorized, 404 Not Found</li>
+                                <li><strong>5xx (Error del servidor):</strong> 500 Internal Server Error, 503 Service Unavailable</li>
+                            </ul>
+
+                            <h5 class="mt-4">HTTP/1.1 vs HTTP/2 vs HTTP/3:</h5>
+                            <p>
+                                <strong>HTTP/1.1</strong> procesa una solicitud a la vez por conexión (pipelining limitado).<br>
+                                <strong>HTTP/2</strong> introduce multiplexing, permitiendo múltiples solicitudes simultáneas sobre una sola conexión TCP, mejorando significativamente el rendimiento.<br>
+                                <strong>HTTP/3</strong> utiliza QUIC sobre UDP en lugar de TCP, reduciendo latencia y mejorando la resiliencia ante pérdida de paquetes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOAP -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSOAP">
+                            <strong>🔒 SOAP - Protocolo Empresarial Robusto</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseSOAP" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPI">
+                        <div class="accordion-body">
+                            <h5>Simple Object Access Protocol (SOAP)</h5>
+                            <p>
+                                SOAP es un <strong>protocolo de mensajería</strong> basado en XML que define un conjunto estricto de reglas para el intercambio estructurado de información 
+                                en entornos distribuidos y descentralizados. A diferencia de REST, SOAP es un protocolo formal con estándares bien definidos.
+                            </p>
+
+                            <h5 class="mt-4">Características Principales:</h5>
+                            <ul>
+                                <li><strong>Independiente del protocolo:</strong> Puede funcionar sobre HTTP, SMTP, TCP, etc.</li>
+                                <li><strong>Mensajes XML:</strong> Estructura estricta con Envelope, Header y Body.</li>
+                                <li><strong>WSDL (Web Services Description Language):</strong> Describe automáticamente las operaciones disponibles.</li>
+                                <li><strong>WS-Security:</strong> Estándar integrado para encriptación, firmas digitales y autenticación.</li>
+                                <li><strong>Transacciones ACID:</strong> Soporte para operaciones críticas que requieren atomicidad.</li>
+                            </ul>
+
+                            <h5 class="mt-4">Cuándo usar SOAP:</h5>
+                            <ul>
+                                <li>Sistemas bancarios y financieros que requieren alta seguridad</li>
+                                <li>Aplicaciones empresariales legacy con contratos formales</li>
+                                <li>Escenarios donde se necesita garantía de entrega de mensajes</li>
+                                <li>Servicios que requieren transacciones complejas y manejo de estado</li>
+                            </ul>
+
+                            <h5 class="mt-4">Ejemplo de Mensaje SOAP:</h5>
+                            <pre><code>&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"&gt;
+  &lt;soap:Header&gt;
+    &lt;auth&gt;token123&lt;/auth&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;GetUserRequest&gt;
+      &lt;userId&gt;456&lt;/userId&gt;
+    &lt;/GetUserRequest&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REST -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseREST">
+                            <strong>⚡ REST - Arquitectura Moderna y Flexible</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseREST" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPI">
+                        <div class="accordion-body">
+                            <h5>Representational State Transfer (REST)</h5>
+                            <p>
+                                REST no es un protocolo, sino un <strong>estilo arquitectónico</strong> que aprovecha HTTP de manera natural. 
+                                Creado por Roy Fielding en 2000, REST se ha convertido en el estándar de facto para APIs web modernas debido a su simplicidad y escalabilidad.
+                            </p>
+
+                            <h5 class="mt-4">Principios Fundamentales de REST:</h5>
+                            <ul>
+                                <li><strong>Arquitectura Cliente-Servidor:</strong> Separación clara de responsabilidades</li>
+                                <li><strong>Sin Estado (Stateless):</strong> Cada petición contiene toda la información necesaria</li>
+                                <li><strong>Cacheable:</strong> Las respuestas deben indicar si pueden almacenarse en caché</li>
+                                <li><strong>Interfaz Uniforme:</strong> URIs como identificadores únicos de recursos</li>
+                                <li><strong>Sistema en Capas:</strong> Cliente no distingue si se conecta directamente al servidor final</li>
+                                <li><strong>Código bajo demanda (opcional):</strong> El servidor puede enviar código ejecutable</li>
+                            </ul>
+
+                            <h5 class="mt-4">Diseño de URIs RESTful:</h5>
+                            <pre><code>GET    /api/users          → Obtener lista de usuarios
+GET    /api/users/123      → Obtener usuario específico
+POST   /api/users          → Crear nuevo usuario
+PUT    /api/users/123      → Actualizar usuario completo
+PATCH  /api/users/123      → Actualizar campos específicos
+DELETE /api/users/123      → Eliminar usuario</code></pre>
+
+                            <h5 class="mt-4">Ventajas de REST:</h5>
+                            <ul>
+                                <li>Ligero y fácil de implementar con JSON</li>
+                                <li>Compatible con todos los lenguajes de programación</li>
+                                <li>Excelente rendimiento y escalabilidad</li>
+                                <li>Caché natural gracias a HTTP</li>
+                                <li>Ideal para aplicaciones móviles y web modernas</li>
+                            </ul>
+
+                            <h5 class="mt-4">REST vs RESTful:</h5>
+                            <p>
+                                Una API es <strong>RESTful</strong> cuando cumple estrictamente con todos los principios REST. 
+                                Muchas APIs modernas son "REST-like" pero no 100% RESTful, lo cual es aceptable en la mayoría de casos prácticos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JWT -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJWT">
+                            <strong>🔐 JWT - Autenticación Sin Estado</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseJWT" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPI">
+                        <div class="accordion-body">
+                            <h5>JSON Web Tokens (JWT)</h5>
+                            <p>
+                                JWT es un estándar abierto (<strong>RFC 7519</strong>) que define una forma compacta y auto-contenida de transmitir información 
+                                de manera segura entre partes como un objeto JSON. Los tokens están firmados digitalmente, lo que permite verificar su autenticidad e integridad.
+                            </p>
+
+                            <h5 class="mt-4">Estructura de un JWT:</h5>
+                            <p>Un JWT consta de tres partes separadas por puntos: <code>xxxxx.yyyyy.zzzzz</code></p>
+                            <ul>
+                                <li>
+                                    <strong>Header:</strong> Contiene el tipo de token (JWT) y el algoritmo de firma (HS256, RS256, etc.)
+                                    <pre><code>{ "alg": "HS256", "typ": "JWT" }</code></pre>
+                                </li>
+                                <li>
+                                    <strong>Payload:</strong> Contiene las "claims" (afirmaciones) sobre el usuario y metadatos
+                                    <pre><code>{
+  "sub": "1234567890",
+  "name": "Juan Pérez",
+  "role": "admin",
+  "iat": 1516239022,
+  "exp": 1516242622
+}</code></pre>
+                                </li>
+                                <li>
+                                    <strong>Signature:</strong> Garantiza que el token no ha sido alterado
+                                    <pre><code>HMACSHA256(
+  base64UrlEncode(header) + "." + base64UrlEncode(payload),
+  secret_key
+)</code></pre>
+                                </li>
+                            </ul>
+
+                            <h5 class="mt-4">Flujo de Autenticación con JWT:</h5>
+                            <ol>
+                                <li>Usuario envía credenciales (username/password)</li>
+                                <li>Servidor valida credenciales y genera un JWT firmado</li>
+                                <li>Cliente almacena el token (localStorage, sessionStorage, cookie httpOnly)</li>
+                                <li>Cliente envía el token en el header Authorization en cada petición</li>
+                                <li>Servidor verifica la firma y extrae la información del usuario</li>
+                            </ol>
+
+                            <h5 class="mt-4">Ventajas de JWT:</h5>
+                            <ul>
+                                <li><strong>Stateless:</strong> No requiere almacenar sesiones en el servidor</li>
+                                <li><strong>Escalable:</strong> Funciona perfectamente en arquitecturas distribuidas</li>
+                                <li><strong>Auto-contenido:</strong> El token lleva toda la información necesaria</li>
+                                <li><strong>Cross-domain:</strong> Ideal para aplicaciones móviles y SPAs</li>
+                                <li><strong>Microservicios:</strong> Fácil de compartir entre diferentes servicios</li>
+                            </ul>
+
+                            <h5 class="mt-4">Buenas Prácticas:</h5>
+                            <ul>
+                                <li>Usar HTTPS siempre para evitar interceptación</li>
+                                <li>Establecer tiempos de expiración cortos (exp claim)</li>
+                                <li>Implementar refresh tokens para renovar JWTs</li>
+                                <li>No almacenar información sensible en el payload (es visible en Base64)</li>
+                                <li>Validar siempre la firma en el backend</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== UNIDAD 2: MICROSERVICIOS ========== -->
+        <section class="tema-section mb-5 mt-5 pt-5 border-top border-secondary">
+            <div class="tema-header text-center mb-4">
+                <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1200&q=80" class="tema-banner mb-3" alt="Microservicios">
+                <h3 class="display-6">2. Arquitectura de Microservicios</h3>
+                <p class="lead px-4">
+                    Los <strong>microservicios</strong> representan un cambio de paradigma en el diseño de software empresarial. 
+                    En lugar de construir aplicaciones monolíticas donde toda la lógica reside en un único código base, 
+                    los microservicios descomponen las aplicaciones en servicios pequeños, autónomos y especializados que trabajan juntos. 
+                    Empresas como Netflix, Amazon, Uber y Spotify han adoptado esta arquitectura para lograr agilidad, escalabilidad y resiliencia sin precedentes.
+                </p>
+                <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#infoModal" 
+                    onclick="updateModal('Introducción a Microservicios', 'De monolitos a arquitecturas distribuidas.', 'https://www.youtube.com/embed/JD6VNRdGl98')">
+                    🎥 Ver Comparativa Arquitectónica
+                </button>
+            </div>
+
+            <div class="accordion" id="accordionMicro">
+                <!-- Monolito vs Microservicios -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonolito">
+                            <strong>🏢 Monolitos vs Microservicios: La Gran Transición</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseMonolito" class="accordion-collapse collapse" data-bs-parent="#accordionMicro">
+                        <div class="accordion-body">
+                            <h5>Arquitectura Monolítica</h5>
+                            <p>
+                                En una <strong>aplicación monolítica</strong>, todos los componentes (UI, lógica de negocio, acceso a datos) están fuertemente acoplados 
+                                y desplegados como una sola unidad. Cualquier cambio requiere redesplegar toda la aplicación.
+                            </p>
+                            <p><strong>Desventajas del Monolito:</strong></p>
+                            <ul>
+                                <li>Difícil de escalar: solo se puede escalar la aplicación completa</li>
+                                <li>Alta dependencia entre módulos: un bug puede afectar todo el sistema</li>
+                                <li>Ciclos de despliegue largos y riesgosos</li>
+                                <li>Tecnología monolítica: difícil adoptar nuevas herramientas</li>
+                                <li>Equipos grandes trabajando en el mismo código base (conflictos)</li>
+                            </ul>
+
+                            <h5 class="mt-4">Arquitectura de Microservicios</h5>
+                            <p>
+                                Los microservicios dividen la aplicación en <strong>servicios independientes</strong>, cada uno responsable de una capacidad de negocio específica. 
+                                Cada servicio puede desarrollarse, desplegarse y escalarse de manera independiente.
+                            </p>
+                            <p><strong>Ventajas de Microservicios:</strong></p>
+                            <ul>
+                                <li><strong>Escalabilidad granular:</strong> escala solo los servicios que lo necesitan</li>
+                                <li><strong>Independencia tecnológica:</strong> cada servicio puede usar el stack más apropiado</li>
+                                <li><strong>Despliegue continuo:</strong> actualizar un servicio no afecta a los demás</li>
+                                <li><strong>Resiliencia:</strong> fallo aislado (un servicio caído no tira todo el sistema)</li>
+                                <li><strong>Equipos autónomos:</strong> equipos pequeños dueños de servicios completos</li>
+                            </ul>
+
+                            <h5 class="mt-4">Tabla Comparativa:</h5>
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Aspecto</th>
+                                        <th>Monolito</th>
+                                        <th>Microservicios</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Despliegue</td>
+                                        <td>Todo o nada</td>
+                                        <td>Servicios independientes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Escalabilidad</td>
+                                        <td>Vertical (más recursos)</td>
+                                        <td>Horizontal (más instancias)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Complejidad</td>
+                                        <td>Simple al inicio</td>
+                                        <td>Compleja distribución</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Base de Datos</td>
+                                        <td>Una única BD compartida</td>
+                                        <td>BD por servicio</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comunicación entre Microservicios -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComunicacion">
+                            <strong>📨 Patrones de Comunicación entre Servicios</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseComunicacion" class="accordion-collapse collapse" data-bs-parent="#accordionMicro">
+                        <div class="accordion-body">
+                            <h5>Comunicación Sincrónica: HTTP/REST y gRPC</h5>
+                            <p>
+                                <strong>REST APIs:</strong> Los microservicios se comunican mediante llamadas HTTP estándar. Simple y ampliamente soportado, 
+                                pero puede generar latencia en cadenas de llamadas largas.
+                            </p>
+                            <p>
+                                <strong>gRPC:</strong> Framework de código abierto desarrollado por Google que usa Protocol Buffers (binario) en lugar de JSON. 
+                                Mucho más rápido y eficiente, ideal para comunicaciones internas entre microservicios.
+                            </p>
+
+                            <h5 class="mt-4">Comunicación Asincrónica: Message Brokers</h5>
+                            <p>
+                                Los servicios publican y consumen mensajes a través de un <strong>broker de mensajes</strong> (RabbitMQ, Apache Kafka, AWS SQS). 
+                                El emisor no espera respuesta inmediata, lo que desacopla los servicios y mejora la resiliencia.
+                            </p>
+                            <p><strong>Ventajas:</strong></p>
+                            <ul>
+                                <li>Desacoplamiento total entre servicios</li>
+                                <li>Buffer ante picos de carga</li>
+                                <li>Procesamiento en segundo plano</li>
+                                <li>Reintento automático de mensajes fallidos</li>
+                            </ul>
+
+                            <h5 class="mt-4">Event-Driven Architecture (Arquitectura Basada en Eventos)</h5>
+                            <p>
+                                Los microservicios emiten <strong>eventos</strong> cuando ocurre un cambio de estado. Otros servicios se suscriben a esos eventos y reaccionan. 
+                                Ejemplo: cuando se crea un pedido, el servicio de inventario, pagos y notificaciones reaccionan automáticamente.
+                            </p>
+
+                            <h5 class="mt-4">API Gateway</h5>
+                            <p>
+                                Un <strong>API Gateway</strong> actúa como punto de entrada único para todos los clientes. Enruta las peticiones al microservicio correspondiente, 
+                                maneja autenticación, rate limiting, caché y composición de respuestas.
+                            </p>
+                            <p><strong>Tecnologías populares:</strong> Kong, AWS API Gateway, NGINX, Traefik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escalabilidad -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEscalabilidad">
+                            <strong>📈 Escalabilidad y Despliegue Continuo</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseEscalabilidad" class="accordion-collapse collapse" data-bs-parent="#accordionMicro">
+                        <div class="accordion-body">
+                            <h5>Escalabilidad Horizontal Automática</h5>
+                            <p>
+                                Con microservicios, puedes escalar <strong>horizontalmente</strong> (agregar más instancias) solo los servicios bajo alta demanda. 
+                                Por ejemplo, durante Black Friday, el servicio de catálogo puede tener 50 instancias mientras que el de reportes solo 2.
+                            </p>
+
+                            <h5 class="mt-4">CI/CD (Continuous Integration / Continuous Deployment)</h5>
+                            <p>
+                                Cada microservicio tiene su propio <strong>pipeline de CI/CD</strong>. Los cambios pasan automáticamente por: 
+                                pruebas unitarias → pruebas de integración → despliegue en staging → despliegue en producción.
+                            </p>
+                            <p><strong>Herramientas comunes:</strong> Jenkins, GitLab CI, GitHub Actions, CircleCI, ArgoCD</p>
+
+                            <h5 class="mt-4">Blue-Green Deployment y Canary Releases</h5>
+                            <p>
+                                <strong>Blue-Green:</strong> Mantener dos entornos idénticos (azul y verde). Desplegar en uno mientras el otro atiende tráfico, 
+                                luego intercambiar. Rollback instantáneo si algo falla.
+                            </p>
+                            <p>
+                                <strong>Canary:</strong> Desplegar la nueva versión gradualmente a un pequeño porcentaje de usuarios (5%), 
+                                monitorear métricas, y si todo va bien, ir incrementando hasta el 100%.
+                            </p>
+
+                            <h5 class="mt-4">Service Mesh</h5>
+                            <p>
+                                Una <strong>malla de servicios</strong> (Service Mesh) como <strong>Istio</strong> o <strong>Linkerd</strong> maneja automáticamente: 
+                                balanceo de carga, cifrado TLS entre servicios, observabilidad (métricas, logs, trazas), circuit breakers y reintentos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Casos de Uso -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCasos">
+                            <strong>🏆 Casos de Éxito en la Industria</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseCasos" class="accordion-collapse collapse" data-bs-parent="#accordionMicro">
+                        <div class="accordion-body">
+                            <h5>Netflix: Pioneros en Microservicios a Gran Escala</h5>
+                            <p>
+                                Netflix migró de un monolito a más de <strong>700 microservicios</strong>. Manejan millones de peticiones por segundo. 
+                                Cada servicio es responsable de una capacidad específica: recomendaciones, reproducción, autenticación, facturación, etc.
+                            </p>
+                            <p><strong>Tecnologías clave:</strong> Spring Boot, Eureka (service discovery), Hystrix (circuit breaker), AWS</p>
+
+                            <h5 class="mt-4">Amazon: Todo es un Servicio</h5>
+                            <p>
+                                Amazon fue de los primeros en adoptar microservicios (2002). El mandato de Jeff Bezos: "Todos los equipos deben exponer sus datos 
+                                y funcionalidades a través de APIs". Esto permitió su transformación en AWS (Amazon Web Services).
+                            </p>
+
+                            <h5 class="mt-4">Uber: Arquitectura de Hiper-Escala</h5>
+                            <p>
+                                Uber tiene más de <strong>2,200 microservicios</strong> críticos. Servicios para: cálculo de tarifas, emparejamiento conductor-pasajero, 
+                                rutas en tiempo real, pagos, promociones, etc. Manejan <strong>15 millones de viajes por día</strong>.
+                            </p>
+
+                            <h5 class="mt-4">Spotify: Equipos Autónomos (Squads)</h5>
+                            <p>
+                                Spotify organiza sus equipos en "squads" autónomos, cada uno responsable de un microservicio completo. 
+                                Esto les permite lanzar actualizaciones múltiples veces al día sin interferir entre equipos.
+                            </p>
+
+                            <h5 class="mt-4">Lecciones Aprendidas:</h5>
+                            <ul>
+                                <li>Empezar pequeño: no migrar todo de golpe</li>
+                                <li>Invertir en observabilidad desde el día 1</li>
+                                <li>Automatizar todo lo posible (testing, deployment)</li>
+                                <li>Cultura DevOps: equipos dueños de todo el ciclo de vida</li>
+                                <li>No es para todos: evaluar si realmente lo necesitas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== UNIDAD 3: CONTENEDORES ========== -->
+        <section class="tema-section mb-5 mt-5 pt-5 border-top border-secondary">
+            <div class="tema-header text-center mb-4">
+                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&w=1200&q=80" class="tema-banner mb-3" alt="Docker">
+                <h3 class="display-6">3. Contenedores y Orquestación</h3>
+                <p class="lead px-4">
+                    Los <strong>contenedores</strong> han revolucionado la forma en que desarrollamos, distribuimos y ejecutamos aplicaciones. 
+                    Ofrecen un entorno aislado, portable y consistente que garantiza que el software funcione exactamente igual en desarrollo, staging y producción. 
+                    Docker democratizó la tecnología de contenedores, mientras que Kubernetes se convirtió en el estándar para orquestarlos a gran escala.
+                </p>
+                <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#infoModal" 
+                    onclick="updateModal('Introducción a Contenedores', 'De máquinas virtuales a contenedores ligeros.', 'https://www.youtube.com/embed/9eTVZwMZJsA')">
+                    🎥 Ver Tutorial Práctico
+                </button>
+            </div>
+
+            <div class="accordion" id="accordionDocker">
+                <!-- Docker -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocker">
+                            <strong>🐳 Docker - Contenedores para Todos</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseDocker" class="accordion-collapse collapse" data-bs-parent="#accordionDocker">
+                        <div class="accordion-body">
+                            <h5>¿Qué es Docker?</h5>
+                            <p>
+                                <strong>Docker</strong> es una plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de <strong>contenedores</strong> de software. 
+                                Un contenedor empaqueta una aplicación junto con todas sus dependencias, bibliotecas y configuraciones necesarias.
+                            </p>
+
+                            <h5 class="mt-4">Contenedores vs Máquinas Virtuales</h5>
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Característica</th>
+                                        <th>Máquina Virtual</th>
+                                        <th>Contenedor Docker</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sistema Operativo</td>
+                                        <td>SO completo por VM</td>
+                                        <td>Comparte Kernel del host</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tamaño</td>
+                                        <td>GB (varios gigas)</td>
+                                        <td>MB (megabytes)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inicio</td>
+                                        <td>Minutos</td>
+                                        <td>Segundos</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rendimiento</td>
+                                        <td>Overhead significativo</td>
+                                        <td>Near-native (casi nativo)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aislamiento</td>
+                                        <td>Completo (hardware virtual)</td>
+                                        <td>A nivel de proceso</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h5 class="mt-4">Componentes Principales de Docker:</h5>
+                            <ul>
+                                <li><strong>Docker Engine:</strong> Motor que ejecuta los contenedores</li>
+                                <li><strong>Dockerfile:</strong> Archivo de texto con instrucciones para construir una imagen</li>
+                                <li><strong>Docker Image:</strong> Plantilla inmutable (solo lectura) con la aplicación y sus dependencias</li>
+                                <li><strong>Docker Container:</strong> Instancia en ejecución de una imagen</li>
+                                <li><strong>Docker Hub:</strong> Registro público de imágenes (como GitHub pero para contenedores)</li>
+                                <li><strong>Docker Compose:</strong> Herramienta para definir aplicaciones multi-contenedor</li>
+                            </ul>
+
+                            <h5 class="mt-4">Ejemplo de Dockerfile:</h5>
+                            <pre><code># Imagen base
+FROM node:18-alpine
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de dependencias
+COPY package*.json ./
+
+# Instalar dependencias
+RUN npm install
+
+# Copiar código fuente
+COPY . .
+
+# Exponer puerto
+EXPOSE 3000
+
+# Comando de inicio
+CMD ["npm", "start"]</code></pre>
+
+                            <h5 class="mt-4">Comandos Docker Básicos:</h5>
+                            <pre><code>docker build -t mi-app .              # Construir imagen
+docker run -p 3000:3000 mi-app         # Ejecutar contenedor
+docker ps                              # Listar contenedores activos
+docker images                          # Listar imágenes
+docker stop &lt;container-id&gt;            # Detener contenedor
+docker logs &lt;container-id&gt;            # Ver logs</code></pre>
+
+                            <h5 class="mt-4">Beneficios de Docker:</h5>
+                            <ul>
+                                <li><strong>"Funciona en mi máquina":</strong> Elimina este problema para siempre</li>
+                                <li><strong>Portabilidad:</strong> La misma imagen corre en cualquier lugar</li>
+                                <li><strong>Eficiencia:</strong> Densidad muy alta (muchos contenedores por servidor)</li>
+                                <li><strong>Versionado:</strong> Imágenes versionadas como código</li>
+                                <li><strong>Rollback fácil:</strong> Volver a una versión anterior en segundos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kubernetes -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKubernetes">
+                            <strong>☸️ Kubernetes - Orquestación a Escala Planetaria</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseKubernetes" class="accordion-collapse collapse" data-bs-parent="#accordionDocker">
+                        <div class="accordion-body">
+                            <h5>¿Qué es Kubernetes?</h5>
+                            <p>
+                                <strong>Kubernetes (K8s)</strong> es un sistema de orquestación de contenedores de código abierto creado por Google. 
+                                Automatiza el despliegue, escalado y gestión de aplicaciones contenerizadas. Es el estándar de facto en la industria, 
+                                soportado por todos los proveedores cloud: AWS (EKS), Azure (AKS), Google Cloud (GKE).
+                            </p>
+
+                            <h5 class="mt-4">Problemas que Resuelve Kubernetes:</h5>
+                            <ul>
+                                <li><strong>Auto-escalado:</strong> Incrementa o reduce réplicas según la carga</li>
+                                <li><strong>Auto-recuperación:</strong> Reinicia contenedores que fallan automáticamente</li>
+                                <li><strong>Balanceo de carga:</strong> Distribuye tráfico entre las réplicas</li>
+                                <li><strong>Despliegues sin downtime:</strong> Rolling updates y canary deployments</li>
+                                <li><strong>Gestión de configuración:</strong> ConfigMaps y Secrets</li>
+                                <li><strong>Almacenamiento persistente:</strong> Manejo de volúmenes</li>
+                            </ul>
+
+                            <h5 class="mt-4">Arquitectura de Kubernetes:</h5>
+                            <p><strong>Control Plane (Plano de Control):</strong></p>
+                            <ul>
+                                <li><strong>API Server:</strong> Punto de entrada para todas las operaciones</li>
+                                <li><strong>etcd:</strong> Base de datos clave-valor distribuida (estado del cluster)</li>
+                                <li><strong>Scheduler:</strong> Decide en qué nodo ejecutar cada Pod</li>
+                                <li><strong>Controller Manager:</strong> Ejecuta controladores (replicas, endpoints, etc.)</li>
+                            </ul>
+                            <p><strong>Nodos Worker:</strong></p>
+                            <ul>
+                                <li><strong>Kubelet:</strong> Agente que garantiza que los contenedores estén corriendo</li>
+                                <li><strong>Kube-proxy:</strong> Maneja las reglas de red</li>
+                                <li><strong>Container Runtime:</strong> Docker, containerd o CRI-O</li>
+                            </ul>
+
+                            <h5 class="mt-4">Conceptos Fundamentales:</h5>
+                            <ul>
+                                <li><strong>Pod:</strong> Unidad mínima desplegable (uno o más contenedores)</li>
+                                <li><strong>Deployment:</strong> Define el estado deseado de los Pods (cuántas replicas, imagen, etc.)</li>
+                                <li><strong>Service:</strong> Abstracción que expone una aplicación (ClusterIP, NodePort, LoadBalancer)</li>
+                                <li><strong>Ingress:</strong> Enrutamiento HTTP/HTTPS desde fuera del cluster</li>
+                                <li><strong>Namespace:</strong> Aislamiento lógico de recursos</li>
+                                <li><strong>ConfigMap:</strong> Configuración externalizada</li>
+                                <li><strong>Secret:</strong> Datos sensibles (contraseñas, tokens)</li>
+                            </ul>
+
+                            <h5 class="mt-4">Ejemplo de Deployment YAML:</h5>
+                            <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+    spec:
+      containers:
+      - name: mi-app
+        image: mi-app:v1.0
+        ports:
+        - containerPort: 3000</code></pre>
+
+                            <h5 class="mt-4">¿Cuándo usar Kubernetes?</h5>
+                            <ul>
+                                <li>Aplicaciones con múltiples microservicios</li>
+                                <li>Necesitas alta disponibilidad y escalabilidad</li>
+                                <li>Despliegues frecuentes (CI/CD)</li>
+                                <li>Aplicaciones cloud-native</li>
+                                <li>Multi-nube o híbrido (on-premise + cloud)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Virtualización vs Contenedores -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVirtualizacion">
+                            <strong>⚙️ Virtualización vs Contenedores: Entendiendo la Diferencia</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseVirtualizacion" class="accordion-collapse collapse" data-bs-parent="#accordionDocker">
+                        <div class="accordion-body">
+                            <h5>Niveles de Virtualización</h5>
+                            <p>
+                                La <strong>virtualización tradicional</strong> (VMware, VirtualBox, Hyper-V) emula hardware completo. 
+                                Cada máquina virtual corre su propio sistema operativo y kernel sobre un hipervisor.
+                            </p>
+                            <p>
+                                Los <strong>contenedores</strong> virtualizan a nivel de sistema operativo. Múltiples contenedores comparten el mismo kernel del host, 
+                                pero están aislados mediante namespaces y cgroups de Linux.
+                            </p>
+
+                            <h5 class="mt-4">Namespaces de Linux:</h5>
+                            <ul>
+                                <li><strong>PID namespace:</strong> Aísla los IDs de procesos</li>
+                                <li><strong>Network namespace:</strong> Interfaz de red aislada</li>
+                                <li><strong>Mount namespace:</strong> Sistema de archivos independiente</li>
+                                <li><strong>UTS namespace:</strong> Hostname y dominio propios</li>
+                                <li><strong>User namespace:</strong> Usuarios y grupos aislados</li>
+                            </ul>
+
+                            <h5 class="mt-4">Control Groups (cgroups):</h5>
+                            <p>
+                                Limitan y controlan los recursos que usa un contenedor: CPU, memoria, I/O de disco y red. 
+                                Por ejemplo, puedes limitar un contenedor a usar máximo 2 CPUs y 512MB de RAM.
+                            </p>
+
+                            <h5 class="mt-4">¿Cuándo usar VMs?</h5>
+                            <ul>
+                                <li>Necesitas aislamiento total a nivel de kernel</li>
+                                <li>Correr diferentes sistemas operativos (Windows en host Linux)</li>
+                                <li>Aplicaciones legacy que requieren SO completo</li>
+                            </ul>
+
+                            <h5 class="mt-4">¿Cuándo usar Contenedores?</h5>
+                            <ul>
+                                <li>Aplicaciones modernas (microservicios, cloud-native)</li>
+                                <li>Necesitas portabilidad y eficiencia</li>
+                                <li>CI/CD y despliegues rápidos</li>
+                                <li>Escalado dinámico</li>
+                            </ul>
+
+                            <h5 class="mt-4">El Mejor de Ambos Mundos:</h5>
+                            <p>
+                                Muchas empresas usan <strong>contenedores dentro de VMs</strong>. Por ejemplo, en AWS, corres Kubernetes en EC2 (VMs), 
+                                obteniendo el aislamiento de VMs con la eficiencia de contenedores.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CI/CD -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCICD">
+                            <strong>🚀 CI/CD con Contenedores: Despliegues Continuos</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseCICD" class="accordion-collapse collapse" data-bs-parent="#accordionDocker">
+                        <div class="accordion-body">
+                            <h5>Integración Continua (CI)</h5>
+                            <p>
+                                Los desarrolladores integran código frecuentemente (varias veces al día) en un repositorio compartido. 
+                                Cada integración dispara un proceso automatizado que:
+                            </p>
+                            <ol>
+                                <li>Clona el repositorio</li>
+                                <li>Ejecuta pruebas unitarias y de integración</li>
+                                <li>Analiza calidad de código (linting, SonarQube)</li>
+                                <li>Construye la imagen Docker</li>
+                                <li>Sube la imagen a un registro (Docker Hub, AWS ECR)</li>
+                            </ol>
+
+                            <h5 class="mt-4">Despliegue Continuo (CD)</h5>
+                            <p>
+                                Cada cambio que pasa las pruebas se despliega <strong>automáticamente</strong> a producción (o staging primero). 
+                                Con contenedores, el proceso es:
+                            </p>
+                            <ol>
+                                <li>Pipeline de CI construye nueva imagen: <code>mi-app:v1.2.3</code></li>
+                                <li>Actualiza manifiesto de Kubernetes con la nueva imagen</li>
+                                <li>Kubernetes hace un rolling update (actualización gradual)</li>
+                                <li>Healthchecks verifican que los nuevos Pods funcionen</li>
+                                <li>Tráfico se redirige gradualmente a la nueva versión</li>
+                                <li>Si falla, rollback automático a la versión anterior</li>
+                            </ol>
+
+                            <h5 class="mt-4">Pipeline CI/CD Completo con GitHub Actions:</h5>
+                            <pre><code>name: CI/CD Pipeline
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run Tests
+        run: npm test
+      
+      - name: Build Docker Image
+        run: docker build -t mi-app:${{ github.sha }} .
+      
+      - name: Push to Registry
+        run: docker push mi-app:${{ github.sha }}
+      
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl set image deployment/mi-app \\
+            mi-app=mi-app:${{ github.sha }}
+          kubectl rollout status deployment/mi-app</code></pre>
+
+                            <h5 class="mt-4">GitOps con ArgoCD o Flux:</h5>
+                            <p>
+                                <strong>GitOps</strong> usa Git como fuente de verdad para la infraestructura y aplicaciones. 
+                                ArgoCD monitorea constantemente el repositorio Git y sincroniza automáticamente el estado del cluster Kubernetes 
+                                con lo definido en Git. Cualquier deriva se corrige automáticamente.
+                            </p>
+
+                            <h5 class="mt-4">Beneficios del CI/CD con Contenedores:</h5>
+                            <ul>
+                                <li>Despliegues múltiples veces al día sin miedo</li>
+                                <li>Feedback inmediato sobre errores</li>
+                                <li>Consistencia total entre entornos</li>
+                                <li>Rollback en segundos si algo falla</li>
+                                <li>Trazabilidad completa (cada cambio está en Git)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== UNIDAD 4: DESARROLLO DE WEB API ========== -->
+        <section class="tema-section mb-5 mt-5 pt-5 border-top border-secondary">
+            <div class="tema-header text-center mb-4">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80" class="tema-banner mb-3" alt="Desarrollo de Web API">
+                <h3 class="display-6">4. Desarrollo de una Web API</h3>
+                <p class="lead px-4">
+                    Construir una <strong>Web API</strong> desde cero requiere comprender no solo los conceptos teóricos, sino también las mejores prácticas de implementación. 
+                    Una API bien diseñada es la diferencia entre un sistema escalable y mantenible versus uno frágil y problemático. 
+                    En esta sección exploramos el ciclo completo de desarrollo: desde el diseño de endpoints hasta la documentación y el versionado, 
+                    cubriendo frameworks modernos, patrones de arquitectura y estrategias de testing que utilizan los equipos profesionales.
+                </p>
+                <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#infoModal" 
+                    onclick="updateModal('Desarrollo de Web APIs', 'Guía práctica para construir APIs RESTful profesionales.', 'https://www.youtube.com/embed/GZvSYJDk-us')">
+                    🎥 Ver Guía de Desarrollo
+                </button>
+            </div>
+
+            <div class="accordion" id="accordionWebAPIDev">
+                <!-- Diseño de API -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisenoAPI">
+                            <strong>📐 Diseño de API: Principios y Mejores Prácticas</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseDisenoAPI" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPIDev">
+                        <div class="accordion-body">
+                            <h5>Principios de Diseño RESTful</h5>
+                            <p>
+                                Un buen diseño de API empieza con la <strong>modelación de recursos</strong>. En REST, todo es un recurso identificado por una URI. 
+                                Los recursos deben ser sustantivos (no verbos) y representar entidades del dominio de negocio.
+                            </p>
+
+                            <h5 class="mt-4">Convenciones de Nomenclatura:</h5>
+                            <ul>
+                                <li><strong>Usar sustantivos plurales:</strong> <code>/api/users</code>, <code>/api/products</code></li>
+                                <li><strong>Jerarquías claras:</strong> <code>/api/users/123/orders</code> (órdenes del usuario 123)</li>
+                                <li><strong>Minúsculas y guiones:</strong> <code>/api/product-categories</code></li>
+                                <li><strong>Evitar verbos:</strong> ❌ <code>/api/getUsers</code> ✅ <code>GET /api/users</code></li>
+                                <li><strong>Versionado en la URL:</strong> <code>/api/v1/users</code>, <code>/api/v2/users</code></li>
+                            </ul>
+
+                            <h5 class="mt-4">Estructura de Respuestas Consistente:</h5>
+                            <pre><code>{
+  "success": true,
+  "data": {
+    "id": 123,
+    "name": "Juan Pérez",
+    "email": "juan@example.com"
+  },
+  "meta": {
+    "timestamp": "2026-03-04T10:30:00Z",
+    "version": "v1"
+  }
+}</code></pre>
+
+                            <h5 class="mt-4">Manejo de Errores Estandarizado:</h5>
+                            <pre><code>{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Email inválido",
+    "details": [
+      {
+        "field": "email",
+        "issue": "Formato de email incorrecto"
+      }
+    ]
+  },
+  "meta": {
+    "timestamp": "2026-03-04T10:30:00Z"
+  }
+}</code></pre>
+
+                            <h5 class="mt-4">Paginación, Filtrado y Ordenamiento:</h5>
+                            <pre><code>GET /api/users?page=2&limit=20&sort=-createdAt&filter=active
+GET /api/products?category=electronics&minPrice=100&maxPrice=500
+
+Response:
+{
+  "success": true,
+  "data": [...],
+  "pagination": {
+    "page": 2,
+    "limit": 20,
+    "total": 150,
+    "pages": 8
+  }
+}</code></pre>
+
+                            <h5 class="mt-4">HATEOAS (Hypermedia as the Engine of Application State):</h5>
+                            <p>
+                                Incluir enlaces hipermedia en las respuestas permite que los clientes descubran dinámicamente las acciones disponibles:
+                            </p>
+                            <pre><code>{
+  "id": 123,
+  "name": "Juan Pérez",
+  "links": [
+    { "rel": "self", "href": "/api/users/123" },
+    { "rel": "orders", "href": "/api/users/123/orders" },
+    { "rel": "update", "href": "/api/users/123", "method": "PUT" },
+    { "rel": "delete", "href": "/api/users/123", "method": "DELETE" }
+  ]
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks y Stack Tecnológico -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFrameworks">
+                            <strong>🛠️ Frameworks y Stack Tecnológico</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseFrameworks" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPIDev">
+                        <div class="accordion-body">
+                            <h5>Node.js con Express.js</h5>
+                            <p>
+                                <strong>Express</strong> es el framework web minimalista más popular para Node.js. Perfecto para APIs rápidas y ligeras.
+                            </p>
+                            <pre><code>const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Middleware de autenticación
+app.use('/api', authMiddleware);
+
+// Rutas
+app.get('/api/users', async (req, res) =&gt; {
+  try {
+    const users = await User.find();
+    res.json({ success: true, data: users });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      error: { message: error.message } 
+    });
+  }
+});
+
+app.listen(3000, () =&gt; console.log('API running on port 3000'));</code></pre>
+
+                            <h5 class="mt-4">Python con FastAPI</h5>
+                            <p>
+                                <strong>FastAPI</strong> es un framework moderno de alto rendimiento para construir APIs con Python 3.7+. 
+                                Generación automática de documentación OpenAPI, validación de tipos con Pydantic, y async/await nativo.
+                            </p>
+                            <pre><code>from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class User(BaseModel):
+    name: str
+    email: str
+    age: int
+
+@app.get("/api/users")
+async def get_users():
+    users = await db.fetch_users()
+    return {"success": True, "data": users}
+
+@app.post("/api/users")
+async def create_user(user: User):
+    if user.age &lt; 18:
+        raise HTTPException(status_code=400, detail="Debe ser mayor de edad")
+    await db.insert_user(user)
+    return {"success": True, "data": user}</code></pre>
+
+                            <h5 class="mt-4">Java con Spring Boot</h5>
+                            <p>
+                                <strong>Spring Boot</strong> es el estándar enterprise para APIs Java. Robusto, con inyección de dependencias, seguridad integrada y ecosistema maduro.
+                            </p>
+                            <pre><code>@RestController
+@RequestMapping("/api/users")
+public class UserController {
+    
+    @Autowired
+    private UserService userService;
+    
+    @GetMapping
+    public ResponseEntity&lt;ApiResponse&gt; getUsers() {
+        List&lt;User&gt; users = userService.findAll();
+        return ResponseEntity.ok(
+            new ApiResponse(true, users)
+        );
+    }
+    
+    @PostMapping
+    public ResponseEntity&lt;ApiResponse&gt; createUser(@Valid @RequestBody User user) {
+        User created = userService.save(user);
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(new ApiResponse(true, created));
+    }
+}</code></pre>
+
+                            <h5 class="mt-4">Comparación de Frameworks:</h5>
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Framework</th>
+                                        <th>Lenguaje</th>
+                                        <th>Rendimiento</th>
+                                        <th>Caso de Uso</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Express.js</td>
+                                        <td>Node.js</td>
+                                        <td>Alto</td>
+                                        <td>Real-time, I/O intensivo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FastAPI</td>
+                                        <td>Python</td>
+                                        <td>Muy Alto</td>
+                                        <td>ML, Data Science APIs</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spring Boot</td>
+                                        <td>Java</td>
+                                        <td>Alto</td>
+                                        <td>Enterprise, Banca</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASP.NET Core</td>
+                                        <td>C#</td>
+                                        <td>Muy Alto</td>
+                                        <td>Microsoft Stack</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autenticación y Seguridad -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeguridadAPI">
+                            <strong>🔒 Autenticación, Autorización y Seguridad</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseSeguridadAPI" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPIDev">
+                        <div class="accordion-body">
+                            <h5>Implementación de JWT en Node.js</h5>
+                            <pre><code>const jwt = require('jsonwebtoken');
+
+// Generar token al login
+app.post('/api/auth/login', async (req, res) =&gt; {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  
+  if (!user || !await bcrypt.compare(password, user.password)) {
+    return res.status(401).json({ 
+      success: false, 
+      error: { message: 'Credenciales inválidas' } 
+    });
+  }
+  
+  const token = jwt.sign(
+    { userId: user._id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: '24h' }
+  );
+  
+  res.json({ success: true, data: { token, user } });
+});
+
+// Middleware de verificación
+const authMiddleware = (req, res, next) =&gt; {
+  const token = req.headers.authorization?.split(' ')[1];
+  
+  if (!token) {
+    return res.status(401).json({ 
+      success: false, 
+      error: { message: 'Token requerido' } 
+    });
+  }
+  
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ 
+      success: false, 
+      error: { message: 'Token inválido' } 
+    });
+  }
+};</code></pre>
+
+                            <h5 class="mt-4">Control de Acceso Basado en Roles (RBAC):</h5>
+                            <pre><code>const authorize = (...roles) =&gt; {
+  return (req, res, next) =&gt; {
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({
+        success: false,
+        error: { message: 'Permisos insuficientes' }
+      });
+    }
+    next();
+  };
+};
+
+// Uso: solo admins pueden eliminar usuarios
+app.delete('/api/users/:id', 
+  authMiddleware, 
+  authorize('admin'), 
+  async (req, res) =&gt; {
+    await User.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  }
+);</code></pre>
+
+                            <h5 class="mt-4">Seguridad: Rate Limiting y CORS</h5>
+                            <pre><code>const rateLimit = require('express-rate-limit');
+const cors = require('cors');
+
+// Limitar requests por IP
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 100, // máximo 100 requests
+  message: { 
+    success: false, 
+    error: { message: 'Demasiados requests, intenta más tarde' } 
+  }
+});
+
+app.use('/api/', limiter);
+
+// Configurar CORS
+app.use(cors({
+  origin: ['https://miapp.com'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));</code></pre>
+
+                            <h5 class="mt-4">Validación de Input</h5>
+                            <pre><code>const { body, validationResult } = require('express-validator');
+
+app.post('/api/users',
+  [
+    body('email').isEmail().normalizeEmail(),
+    body('password').isLength({ min: 8 }),
+    body('age').isInt({ min: 18, max: 120 })
+  ],
+  async (req, res) =&gt; {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ 
+        success: false, 
+        error: { details: errors.array() } 
+      });
+    }
+    // Procesar...
+  }
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing y Documentación -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTestingDoc">
+                            <strong>🧪 Testing, Documentación y Versionado</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseTestingDoc" class="accordion-collapse collapse" data-bs-parent="#accordionWebAPIDev">
+                        <div class="accordion-body">
+                            <h5>Testing con Jest y Supertest</h5>
+                            <pre><code>const request = require('supertest');
+const app = require('../app');
+
+describe('User API', () =&gt; {
+  let authToken;
+  
+  beforeAll(async () =&gt; {
+    // Login para obtener token
+    const res = await request(app)
+      .post('/api/auth/login')
+      .send({ email: 'test@test.com', password: 'password123' });
+    authToken = res.body.data.token;
+  });
+  
+  test('GET /api/users - debe retornar lista de usuarios', async () =&gt; {
+    const res = await request(app)
+      .get('/api/users')
+      .set('Authorization', `Bearer ${authToken}`)
+      .expect(200);
+    
+    expect(res.body.success).toBe(true);
+    expect(Array.isArray(res.body.data)).toBe(true);
+  });
+  
+  test('POST /api/users - debe crear usuario válido', async () =&gt; {
+    const res = await request(app)
+      .post('/api/users')
+      .send({ name: 'Test', email: 'new@test.com', age: 25 })
+      .expect(201);
+    
+    expect(res.body.success).toBe(true);
+    expect(res.body.data.email).toBe('new@test.com');
+  });
+  
+  test('POST /api/users - debe rechazar email inválido', async () =&gt; {
+    await request(app)
+      .post('/api/users')
+      .send({ name: 'Test', email: 'invalid', age: 25 })
+      .expect(400);
+  });
+});</code></pre>
+
+                            <h5 class="mt-4">Documentación con Swagger/OpenAPI</h5>
+                            <pre><code>const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Mi API',
+      version: '1.0.0',
+      description: 'API RESTful para gestión de usuarios'
+    },
+    servers: [{ url: 'http://localhost:3000' }]
+  },
+  apis: ['./routes/*.js']
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Obtiene lista de usuarios
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios
+ *       401:
+ *         description: No autorizado
+ */</code></pre>
+
+                            <h5 class="mt-4">Versionado de API</h5>
+                            <p>Estrategias para evolucionar tu API sin romper aplicaciones existentes:</p>
+                            <ul>
+                                <li><strong>URL Versioning:</strong> <code>/api/v1/users</code>, <code>/api/v2/users</code></li>
+                                <li><strong>Header Versioning:</strong> <code>Accept: application/vnd.api.v2+json</code></li>
+                                <li><strong>Query Parameter:</strong> <code>/api/users?version=2</code></li>
+                            </ul>
+                            <pre><code>// Implementación URL versioning
+app.use('/api/v1', require('./routes/v1'));
+app.use('/api/v2', require('./routes/v2'));
+
+// V2 con cambios no compatibles
+router.get('/users', async (req, res) =&gt; {
+  const users = await User.find().select('id name email'); // Menos campos
+  res.json({ users }); // Estructura diferente
+});</code></pre>
+
+                            <h5 class="mt-4">Monitoreo y Logs</h5>
+                            <pre><code>const winston = require('winston');
+
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
+});
+
+// Middleware de logging
+app.use((req, res, next) =&gt; {
+  logger.info(`${req.method} ${req.path}`, {
+    ip: req.ip,
+    userId: req.user?.userId
+  });
+  next();
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== UNIDAD 5: APLICACIONES PARA LA NUBE ========== -->
+        <section class="tema-section mb-5 mt-5 pt-5 border-top border-secondary">
+            <div class="tema-header text-center mb-4">
+                <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1200&q=80" class="tema-banner mb-3" alt="Cloud Computing">
+                <h3 class="display-6">5. Desarrollo de Aplicaciones para la Nube</h3>
+                <p class="lead px-4">
+                    El <strong>cloud computing</strong> ha transformado radicalmente cómo construimos, desplegamos y escalamos aplicaciones. 
+                    Ya no necesitas comprar servidores físicos ni preocuparte por la infraestructura; los proveedores cloud como AWS, Azure y Google Cloud 
+                    ofrecen recursos bajo demanda, escalado automático y disponibilidad global. Desarrollar para la nube requiere adoptar nuevos patrones arquitectónicos: 
+                    aplicaciones <strong>cloud-native</strong> diseñadas para aprovechar la elasticidad, resiliencia y servicios administrados que ofrece la nube.
+                </p>
+                <button class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#infoModal" 
+                    onclick="updateModal('Cloud Computing', 'Arquitecturas cloud-native y servicios en la nube.', 'https://www.youtube.com/embed/M988_fsOSWo')">
+                    🎥 Ver Introducción al Cloud
+                </button>
+            </div>
+
+            <div class="accordion" id="accordionCloud">
+                <!-- Proveedores Cloud -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProveedores">
+                            <strong>☁️ Principales Proveedores Cloud</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseProveedores" class="accordion-collapse collapse" data-bs-parent="#accordionCloud">
+                        <div class="accordion-body">
+                            <h5>Amazon Web Services (AWS)</h5>
+                            <p>
+                                <strong>AWS</strong> es el líder del mercado con 32% de cuota global. Ofrece más de 200 servicios completamente administrados 
+                                desde centros de datos en 30 regiones geográficas alrededor del mundo.
+                            </p>
+                            <p><strong>Servicios principales:</strong></p>
+                            <ul>
+                                <li><strong>EC2 (Elastic Compute Cloud):</strong> Servidores virtuales escalables</li>
+                                <li><strong>S3 (Simple Storage Service):</strong> Almacenamiento de objetos ilimitado</li>
+                                <li><strong>RDS (Relational Database Service):</strong> Bases de datos administradas (MySQL, PostgreSQL, etc.)</li>
+                                <li><strong>Lambda:</strong> Funciones serverless (ejecuta código sin gestionar servidores)</li>
+                                <li><strong>ECS/EKS:</strong> Orquestación de contenedores (Docker y Kubernetes)</li>
+                                <li><strong>API Gateway:</strong> Creación y gestión de APIs</li>
+                                <li><strong>CloudFront:</strong> CDN global para distribución de contenido</li>
+                            </ul>
+
+                            <h5 class="mt-4">Microsoft Azure</h5>
+                            <p>
+                                <strong>Azure</strong> es la segunda plataforma más grande (23% del mercado). Integración perfecta con el ecosistema Microsoft 
+                                (Active Directory, Office 365, .NET). Popular en empresas y gobierno.
+                            </p>
+                            <p><strong>Servicios principales:</strong></p>
+                            <ul>
+                                <li><strong>Azure Virtual Machines:</strong> VMs en la nube</li>
+                                <li><strong>Azure App Service:</strong> Hosting de aplicaciones web y APIs</li>
+                                <li><strong>Azure Functions:</strong> Serverless computing</li>
+                                <li><strong>Azure SQL Database:</strong> Base de datos SQL administrada</li>
+                                <li><strong>Azure Kubernetes Service (AKS):</strong> Kubernetes administrado</li>
+                                <li><strong>Azure DevOps:</strong> CI/CD y gestión de proyectos</li>
+                            </ul>
+
+                            <h5 class="mt-4">Google Cloud Platform (GCP)</h5>
+                            <p>
+                                <strong>GCP</strong> (10% del mercado) destaca por sus servicios de Big Data, Machine Learning y Kubernetes (creado por Google). 
+                                Red global de alta velocidad.
+                            </p>
+                            <p><strong>Servicios principales:</strong></p>
+                            <ul>
+                                <li><strong>Compute Engine:</strong> Máquinas virtuales</li>
+                                <li><strong>Cloud Run:</strong> Contenedores serverless</li>
+                                <li><strong>BigQuery:</strong> Data warehouse para análisis masivo</li>
+                                <li><strong>Cloud Functions:</strong> Funciones serverless</li>
+                                <li><strong>GKE (Google Kubernetes Engine):</strong> Kubernetes administrado más avanzado</li>
+                                <li><strong>Firebase:</strong> Backend-as-a-Service para aplicaciones móviles</li>
+                            </ul>
+
+                            <h5 class="mt-4">Comparación de Proveedores:</h5>
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Aspecto</th>
+                                        <th>AWS</th>
+                                        <th>Azure</th>
+                                        <th>GCP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Cuota de mercado</td>
+                                        <td>32%</td>
+                                        <td>23%</td>
+                                        <td>10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fortaleza</td>
+                                        <td>Más servicios</td>
+                                        <td>Integración MS</td>
+                                        <td>ML y K8s</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ideal para</td>
+                                        <td>Startups, web</td>
+                                        <td>Empresas</td>
+                                        <td>Data/Analytics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pricing</td>
+                                        <td>Pay-as-you-go</td>
+                                        <td>Descuentos MS</td>
+                                        <td>Más económico</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arquitecturas Cloud-Native -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCloudNative">
+                            <strong>🚀 Arquitecturas Cloud-Native</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseCloudNative" class="accordion-collapse collapse" data-bs-parent="#accordionCloud">
+                        <div class="accordion-body">
+                            <h5>12-Factor App: Principios Fundamentales</h5>
+                            <p>
+                                Metodología creada por Heroku que define 12 mejores prácticas para construir aplicaciones SaaS modernas y cloud-native:
+                            </p>
+                            <ul>
+                                <li><strong>I. Codebase:</strong> Un código base versionado en Git, múltiples despliegues</li>
+                                <li><strong>II. Dependencies:</strong> Declarar explícitamente todas las dependencias</li>
+                                <li><strong>III. Config:</strong> Configuración en variables de entorno, no en código</li>
+                                <li><strong>IV. Backing Services:</strong> Tratar bases de datos, colas, etc. como recursos adjuntos</li>
+                                <li><strong>V. Build, Release, Run:</strong> Separar estrictamente las etapas</li>
+                                <li><strong>VI. Processes:</strong> Ejecutar la app como procesos stateless</li>
+                                <li><strong>VII. Port Binding:</strong> Exportar servicios vía port binding</li>
+                                <li><strong>VIII. Concurrency:</strong> Escalar mediante el modelo de procesos</li>
+                                <li><strong>IX. Disposability:</strong> Inicio rápido y apagado graceful</li>
+                                <li><strong>X. Dev/Prod Parity:</strong> Entornos lo más similares posible</li>
+                                <li><strong>XI. Logs:</strong> Logs como streams de eventos</li>
+                                <li><strong>XII. Admin Processes:</strong> Tareas de administración como procesos one-off</li>
+                            </ul>
+
+                            <h5 class="mt-4">Serverless Computing</h5>
+                            <p>
+                                <strong>Serverless</strong> no significa "sin servidores", sino que no gestionas la infraestructura. 
+                                Escribes funciones que se ejecutan en respuesta a eventos y pagas solo por el tiempo de ejecución (milisegundos).
+                            </p>
+                            <p><strong>Ventajas:</strong></p>
+                            <ul>
+                                <li>Sin gestión de servidores ni actualizaciones de SO</li>
+                                <li>Escalado automático desde 0 hasta miles de ejecuciones</li>
+                                <li>Pago por uso real (no por servidor idle)</li>
+                                <li>Alta disponibilidad integrada</li>
+                            </ul>
+
+                            <h5 class="mt-4">Ejemplo de AWS Lambda (Serverless):</h5>
+                            <pre><code>// AWS Lambda function en Node.js
+exports.handler = async (event) =&gt; {
+  const userId = event.pathParameters.id;
+  
+  // Consultar DynamoDB
+  const user = await dynamoDB.get({
+    TableName: 'Users',
+    Key: { userId }
+  }).promise();
+  
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ success: true, data: user.Item })
+  };
+};
+
+// Se ejecuta solo cuando recibe una petición HTTP
+// API Gateway → Lambda → DynamoDB
+// No pagas cuando no hay requests</code></pre>
+
+                            <h5 class="mt-4">Infrastructure as Code (IaC)</h5>
+                            <p>
+                                Definir infraestructura mediante código versionable. Usar herramientas como <strong>Terraform</strong>, 
+                                <strong>AWS CloudFormation</strong> o <strong>Pulumi</strong>.
+                            </p>
+                            <pre><code># Terraform: Crear bucket S3 y Lambda
+resource "aws_s3_bucket" "uploads" {
+  bucket = "mi-app-uploads"
+  acl    = "private"
+}
+
+resource "aws_lambda_function" "processor" {
+  function_name = "image-processor"
+  runtime       = "nodejs18.x"
+  handler       = "index.handler"
+  filename      = "lambda.zip"
+  role          = aws_iam_role.lambda_role.arn
+  
+  environment {
+    variables = {
+      BUCKET_NAME = aws_s3_bucket.uploads.id
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bases de Datos en la Nube -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabasesCloud">
+                            <strong>💾 Bases de Datos y Almacenamiento en la Nube</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseDatabasesCloud" class="accordion-collapse collapse" data-bs-parent="#accordionCloud">
+                        <div class="accordion-body">
+                            <h5>Bases de Datos Relacionales Administradas</h5>
+                            <p>
+                                Los proveedores cloud ofrecen bases de datos relacionales completamente administradas: backups automáticos, 
+                                alta disponibilidad, réplicas de lectura, escalado automático.
+                            </p>
+                            <ul>
+                                <li><strong>AWS RDS:</strong> MySQL, PostgreSQL, SQL Server, Oracle, MariaDB</li>
+                                <li><strong>Azure SQL Database:</strong> SQL Server administrado</li>
+                                <li><strong>Google Cloud SQL:</strong> MySQL, PostgreSQL, SQL Server</li>
+                                <li><strong>AWS Aurora:</strong> MySQL/PostgreSQL compatible, 5x más rápido</li>
+                            </ul>
+
+                            <h5 class="mt-4">Bases de Datos NoSQL como Servicio</h5>
+                            <ul>
+                                <li><strong>AWS DynamoDB:</strong> BD de documentos/key-value serverless, latencia de un dígito de milisegundo</li>
+                                <li><strong>MongoDB Atlas:</strong> MongoDB administrado multi-cloud</li>
+                                <li><strong>Azure Cosmos DB:</strong> BD multi-modelo (documento, grafo, key-value), distribución global</li>
+                                <li><strong>Google Firestore:</strong> BD NoSQL en tiempo real para aplicaciones móviles/web</li>
+                            </ul>
+
+                            <h5 class="mt-4">Ejemplo: DynamoDB con Node.js</h5>
+                            <pre><code>const AWS = require('aws-sdk');
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
+
+// Insertar
+await dynamoDB.put({
+  TableName: 'Users',
+  Item: {
+    userId: '123',
+    name: 'Ana García',
+    email: 'ana@example.com',
+    createdAt: Date.now()
+  }
+}).promise();
+
+// Query con índice secundario
+const result = await dynamoDB.query({
+  TableName: 'Users',
+  IndexName: 'email-index',
+  KeyConditionExpression: 'email = :email',
+  ExpressionAttributeValues: {
+    ':email': 'ana@example.com'
+  }
+}).promise();</code></pre>
+
+                            <h5 class="mt-4">Almacenamiento de Objetos (Object Storage)</h5>
+                            <p>
+                                Para archivos, imágenes, videos, backups. Escalable ilimitadamente, alta durabilidad (99.999999999%).
+                            </p>
+                            <ul>
+                                <li><strong>AWS S3:</strong> El más usado, integración con CloudFront CDN</li>
+                                <li><strong>Azure Blob Storage:</strong> Hot, Cool, Archive tiers</li>
+                                <li><strong>Google Cloud Storage:</strong> Multi-regional, nearline, coldline</li>
+                            </ul>
+
+                            <h5 class="mt-4">Cache y Sesiones</h5>
+                            <ul>
+                                <li><strong>AWS ElastiCache:</strong> Redis y Memcached administrados</li>
+                                <li><strong>Azure Cache for Redis:</strong> Redis con SLA 99.9%</li>
+                                <li>Usar para sesiones de usuarios, resultados de queries, rate limiting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Despliegue y DevOps -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDevOpsCloud">
+                            <strong>⚙️ Despliegue, Monitoreo y DevOps en la Nube</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseDevOpsCloud" class="accordion-collapse collapse" data-bs-parent="#accordionCloud">
+                        <div class="accordion-body">
+                            <h5>CI/CD en la Nube</h5>
+                            <p><strong>AWS:</strong></p>
+                            <ul>
+                                <li><strong>CodePipeline:</strong> Orquestación de pipelines</li>
+                                <li><strong>CodeBuild:</strong> Compilación y testing</li>
+                                <li><strong>CodeDeploy:</strong> Despliegue automatizado</li>
+                            </ul>
+                            <p><strong>Azure:</strong></p>
+                            <ul>
+                                <li><strong>Azure DevOps:</strong> Suite completa (repos, boards, pipelines, artifacts)</li>
+                                <li><strong>GitHub Actions:</strong> Integración nativa con Azure</li>
+                            </ul>
+                            <p><strong>Google Cloud:</strong></p>
+                            <ul>
+                                <li><strong>Cloud Build:</strong> Construcción de contenedores</li>
+                                <li><strong>Cloud Deploy:</strong> Entrega continua</li>
+                            </ul>
+
+                            <h5 class="mt-4">Monitoreo y Observabilidad</h5>
+                            <pre><code>// AWS CloudWatch: Métricas y alarmas
+const cloudwatch = new AWS.CloudWatch();
+
+// Publicar métrica personalizada
+await cloudwatch.putMetricData({
+  Namespace: 'MiApp/API',
+  MetricData: [{
+    MetricName: 'RequestLatency',
+    Value: latency,
+    Unit: 'Milliseconds',
+    Timestamp: new Date()
+  }]
+}).promise();
+
+// Crear alarma
+await cloudwatch.putMetricAlarm({
+  AlarmName: 'HighLatency',
+  MetricName: 'RequestLatency',
+  Namespace: 'MiApp/API',
+  Statistic: 'Average',
+  Period: 300,
+  EvaluationPeriods: 2,
+  Threshold: 1000,
+  ComparisonOperator: 'GreaterThanThreshold',
+  AlarmActions: [snsTopicArn] // Enviar notificación
+}).promise();</code></pre>
+
+                            <h5 class="mt-4">Trazas Distribuidas (Distributed Tracing)</h5>
+                            <p>
+                                En arquitecturas de microservicios, una petición puede atravesar múltiples servicios. 
+                                <strong>AWS X-Ray</strong>, <strong>Azure Application Insights</strong> y <strong>Google Cloud Trace</strong> 
+                                permiten seguir la ruta completa de cada request.
+                            </p>
+
+                            <h5 class="mt-4">Auto-Scaling</h5>
+                            <pre><code># AWS Auto Scaling Group (Terraform)
+resource "aws_autoscaling_group" "api" {
+  name                = "api-asg"
+  min_size            = 2
+  max_size            = 10
+  desired_capacity    = 3
+  health_check_type   = "ELB"
+  vpc_zone_identifier = [aws_subnet.private.id]
+  
+  launch_template {
+    id      = aws_launch_template.api.id
+    version = "$Latest"
+  }
+  
+  tag {
+    key                 = "Name"
+    value               = "api-server"
+    propagate_at_launch = true
+  }
+}
+
+# Escalar basado en CPU
+resource "aws_autoscaling_policy" "scale_up" {
+  name                   = "scale-up"
+  scaling_adjustment     = 2
+  adjustment_type        = "ChangeInCapacity"
+  cooldown               = 300
+  autoscaling_group_name = aws_autoscaling_group.api.name
+}</code></pre>
+
+                            <h5 class="mt-4">Costos y Optimización</h5>
+                            <p><strong>Estrategias para reducir costos cloud:</strong></p>
+                            <ul>
+                                <li><strong>Reserved Instances:</strong> Descuento 40-60% por compromiso de 1-3 años</li>
+                                <li><strong>Spot Instances:</strong> Hasta 90% descuento usando capacidad no utilizada</li>
+                                <li><strong>Right-sizing:</strong> Ajustar tamaño de instancias a la carga real</li>
+                                <li><strong>Auto-shutdown:</strong> Apagar recursos en horarios no laborales</li>
+                                <li><strong>S3 Lifecycle:</strong> Mover datos antiguos a tiers más baratos</li>
+                                <li><strong>CloudWatch billing alarms:</strong> Alertas cuando excedes presupuesto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark border-info text-white">
+                <div class="modal-header border-info">
+                    <h5 class="modal-title" id="mTitle">Detalles</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p id="mDesc" class="mb-4"></p>
+                    <div class="ratio ratio-16x9">
+                        <iframe id="mVideo" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contacto" class="container my-5 pt-5 border-top border-secondary">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Registro de Interés Técnico</h3>
+                <form id="formRegistro" class="p-4 bg-dark rounded shadow mt-4">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre Completo</label>
+                        <input type="text" id="v_nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Institucional</label>
+                        <input type="email" id="v_email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Semestre</label>
+                        <input type="number" id="v_sem" class="form-control" placeholder="Ej: 6" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Área de Interés</label>
+                        <select class="form-select" id="v_tema" required>
+                            <option value="">Selecciona un tema...</option>
+                            <option>Seguridad Web (JWT)</option>
+                            <option>Arquitectura Microservicios</option>
+                            <option>Despliegue con Docker</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Comentarios</label>
+                        <textarea id="v_msj" class="form-control" rows="2" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-neon w-100">Registrar</button>
+                </form>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <h3>Ubicación del Centro de Datos</h3>
+                <div id="map-container" class="mt-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14802.734633816573!2d-102.29657091228222!3d21.9466547639598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ef99335f606d%3A0xc3f5c92c8172c7a4!2sUniversidad%20Aut%C3%B3noma%20de%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1709400000000!5m2!1ses-419!2smx" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-5">
+        <p class="text-info">Ivan - LITC 6°A - Proyecto Integrador Parcial 1</p>
+        <p class="small text-secondary">Materia: Desarrollo Web | Profesora: Dr. Margarita Mondragón</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript.js"></script>
+</body>
+</html> 
